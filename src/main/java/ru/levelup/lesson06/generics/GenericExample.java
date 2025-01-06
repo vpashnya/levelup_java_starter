@@ -27,7 +27,7 @@ public class GenericExample<T extends Comparable, V extends Animal & Serializabl
         return weight;
     }
 
-    public String getFieldsNames() {
+    public String getFieldsContent() {
         return " name : " + this.getName() + " : " + this.getName().getClass() + " \n"
                 + " animalObj : " + this.getAnimalObj() + " : " + this.getAnimalObj() .getClass() + " \n"
                 + " weight : " + this.getWeight() + " : " + this.getWeight().getClass() + "\n";
