@@ -3,7 +3,13 @@ package ru.levelup.lesson09.abonentgenerators;
 import ru.levelup.lesson09.abonentclasses.Abonent;
 import ru.levelup.lesson09.abonentclasses.Operator;
 
-import java.util.*;
+import java.util.Random;
+import java.util.Collection;
+import java.util.List;
+import java.util.TreeSet;
+import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.HashSet;
 
 public abstract class AbstractAbonentFactory<T extends Collection<Abonent>> {
     private Random randomizer;

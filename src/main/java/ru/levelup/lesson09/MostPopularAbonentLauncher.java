@@ -7,7 +7,15 @@ import ru.levelup.lesson09.phonedictionary.ArrayPhoneDictionary;
 import ru.levelup.lesson09.phonedictionary.CollectionPhoneDictionary;
 import ru.levelup.lesson09.phonedictionary.MapPhoneDictionary;
 
-import java.util.*;
+import java.util.Random;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.TreeSet;
+import java.util.ArrayDeque;
+import java.util.HashMap;
+import java.util.TreeMap;
+import java.util.Collection;
+import java.util.HashSet;
 
 
 public class MostPopularAbonentLauncher {
