@@ -1,10 +1,27 @@
 package ru.levelup.lesson08.employeeutils;
 
+import ru.levelup.lesson08.employeegenerator.FemaleEmployeeFactory;
+import ru.levelup.lesson08.employeegenerator.MaleEmployeeFactory;
 import ru.levelup.lesson08.employees.Employee;
 
 import java.util.*;
 
 public class EmployeeUtils {
+    public static void fillEmployeeCollection(Collection<Employee> employees, int size, Random randomizer) {
+        System.out.println(">>>> Наполняем коллекцию");
+        MaleEmployeeFactory maleFactory = new MaleEmployeeFactory(randomizer);
+        FemaleEmployeeFactory femaleFactory = new FemaleEmployeeFactory(randomizer);
+
+        for (int i = 0; i < size; i++) {
+            employees.add(
+                    switch (randomizer.nextInt(2)) {
+                        case 0 -> femaleFactory.generateEmployee();
+                        case 1 -> maleFactory.generateEmployee();
+                        default -> null;
+                    });
+        }
+    }
+
     public static void printAllEmployees(Collection<Employee> employees) {
         System.out.println(">>>> Cписок работников");
         Iterator<Employee> iterator = employees.iterator();
