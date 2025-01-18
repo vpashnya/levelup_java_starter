@@ -42,7 +42,7 @@ public class MapPhoneDictionary<T extends Map<String, Abonent>> extends Abstract
     public void printMostPopularAbonents() {
         long startTime = System.currentTimeMillis();
         HashMap<Abonent, Integer> popularAbonents = new HashMap<>();
-        for (Abonent abonent :  abonents.values()) {
+        for (Abonent abonent : abonents.values()) {
             for (Abonent contact : abonent.getContacts()) {
                 Integer cnt = popularAbonents.get(contact);
                 if (cnt == null) {

@@ -7,7 +7,13 @@ import ru.levelup.lesson09.phonedictionary.ArrayPhoneDictionary;
 import ru.levelup.lesson09.phonedictionary.CollectionPhoneDictionary;
 import ru.levelup.lesson09.phonedictionary.MapPhoneDictionary;
 
-import java.util.*;
+import java.util.Random;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.TreeSet;
+import java.util.ArrayDeque;
+import java.util.HashMap;
+import java.util.TreeMap;
 
 public class PhoneDictionaryFillLauncher {
     public static void main(String[] args) {
@@ -27,7 +33,6 @@ public class PhoneDictionaryFillLauncher {
         new MapPhoneDictionary<>(new TreeMap<>(), count, randomizer, femaleAbonentFactrory, maleAbonentFactory);
 
         new ArrayPhoneDictionary(count, randomizer, femaleAbonentFactrory, maleAbonentFactory);
-
 
 
     }

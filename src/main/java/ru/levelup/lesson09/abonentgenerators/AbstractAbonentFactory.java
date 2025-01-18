@@ -5,7 +5,7 @@ import ru.levelup.lesson09.abonentclasses.Operator;
 
 import java.util.*;
 
-public abstract class AbstractAbonentFactory<T extends Collection<Abonent> > {
+public abstract class AbstractAbonentFactory<T extends Collection<Abonent>> {
     private Random randomizer;
 
     final private List<String> surNames;
@@ -22,7 +22,7 @@ public abstract class AbstractAbonentFactory<T extends Collection<Abonent> > {
         this.surNames = surNames;
         this.names = names;
         this.fatherNames = fatherNames;
-        this.contactsPattern =  contactsPattern;
+        this.contactsPattern = contactsPattern;
     }
 
     private String generateFullName() {
@@ -58,11 +58,11 @@ public abstract class AbstractAbonentFactory<T extends Collection<Abonent> > {
         } while (uniqPhoneNumbers.contains(phoneNumber));
 
         Collection<Abonent> contacts = null;
-        if (contactsPattern instanceof LinkedList<?>){
+        if (contactsPattern instanceof LinkedList<?>) {
             contacts = new LinkedList<>();
-        } else if (contactsPattern instanceof ArrayList<?>){
+        } else if (contactsPattern instanceof ArrayList<?>) {
             contacts = new ArrayList<>();
-        }else if (contactsPattern instanceof TreeSet<?>){
+        } else if (contactsPattern instanceof TreeSet<?>) {
             contacts = new TreeSet<>();
         } else if (contactsPattern instanceof HashSet<?>) {
             contacts = new HashSet<>();

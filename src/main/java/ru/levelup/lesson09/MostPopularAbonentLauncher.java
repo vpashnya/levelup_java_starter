@@ -19,7 +19,7 @@ public class MostPopularAbonentLauncher {
         testFindMostPopularAbonents(new LinkedList<Abonent>());
     }
 
-    public static void testFindMostPopularAbonents(Collection<Abonent> contactPattern ){
+    public static void testFindMostPopularAbonents(Collection<Abonent> contactPattern) {
         int count = 25000;
         Random randomizer = new Random();
         FemaleAbonentFactrory femaleAbonentFactrory = new FemaleAbonentFactrory(randomizer, contactPattern);

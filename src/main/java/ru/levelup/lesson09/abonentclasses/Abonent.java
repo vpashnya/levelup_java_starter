@@ -1,7 +1,6 @@
 package ru.levelup.lesson09.abonentclasses;
 
 import java.util.Collection;
-import java.util.TreeSet;
 
 public class Abonent implements Comparable {
     final private String fullname;
