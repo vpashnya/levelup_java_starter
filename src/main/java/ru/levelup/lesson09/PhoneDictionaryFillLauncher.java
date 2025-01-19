@@ -16,8 +16,8 @@ import java.util.HashMap;
 import java.util.TreeMap;
 
 public class PhoneDictionaryFillLauncher {
+    final static int count = 10000;
     public static void main(String[] args) {
-        int count = 10000;
         Random randomizer = new Random();
         FemaleAbonentFactrory femaleAbonentFactrory = new FemaleAbonentFactrory(randomizer, new TreeSet<Abonent>());
         MaleAbonentFactory maleAbonentFactory = new MaleAbonentFactory(randomizer, new TreeSet<Abonent>());

@@ -2,7 +2,6 @@ package ru.levelup.lesson09.abonentgenerators;
 
 import ru.levelup.lesson09.abonentclasses.Abonent;
 import ru.levelup.lesson09.abonentclasses.Operator;
-
 import java.util.Random;
 import java.util.Collection;
 import java.util.List;
@@ -74,8 +73,6 @@ public abstract class AbstractAbonentFactory<T extends Collection<Abonent>> {
             contacts = new HashSet<>();
         }
 
-
         return new Abonent(fullname, phoneNumber, operator, contacts);
-
     }
 }

@@ -1,11 +1,9 @@
 package ru.levelup.lesson09.abonentgenerators;
 
-import ru.levelup.lesson08.employees.Employee;
 import ru.levelup.lesson09.abonentclasses.Abonent;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.Random;
 
 public class MaleAbonentFactory<T extends Collection<Abonent>> extends AbstractAbonentFactory<T> {

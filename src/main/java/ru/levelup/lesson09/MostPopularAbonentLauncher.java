@@ -19,8 +19,10 @@ import java.util.HashSet;
 
 
 public class MostPopularAbonentLauncher {
-    public static void main(String[] args) {
+    final static int count = 25000;
+    final static Random randomizer = new Random();
 
+    public static void main(String[] args) {
         testFindMostPopularAbonents(new TreeSet<Abonent>());
         testFindMostPopularAbonents(new HashSet<Abonent>());
         testFindMostPopularAbonents(new ArrayList<Abonent>());
@@ -28,8 +30,6 @@ public class MostPopularAbonentLauncher {
     }
 
     public static void testFindMostPopularAbonents(Collection<Abonent> contactPattern) {
-        int count = 25000;
-        Random randomizer = new Random();
         FemaleAbonentFactrory femaleAbonentFactrory = new FemaleAbonentFactrory(randomizer, contactPattern);
         MaleAbonentFactory maleAbonentFactory = new MaleAbonentFactory(randomizer, contactPattern);
 

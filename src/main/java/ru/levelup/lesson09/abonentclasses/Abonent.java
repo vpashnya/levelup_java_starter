@@ -2,11 +2,11 @@ package ru.levelup.lesson09.abonentclasses;
 
 import java.util.Collection;
 
-public class Abonent implements Comparable {
-    final private String fullname;
-    final private String phoneNumber;
-    final private Operator operator;
-    final private Collection<Abonent> contacts;
+public class Abonent implements Comparable<Abonent> {
+    private final String fullname;
+    private final String phoneNumber;
+    private final Operator operator;
+    private final Collection<Abonent> contacts;
 
     public Abonent(String fullname, String phoneNumber, Operator operator, Collection<Abonent> contacts) {
         this.fullname = fullname;
@@ -37,8 +37,7 @@ public class Abonent implements Comparable {
     }
 
     @Override
-    public int compareTo(Object o) {
-        Abonent abonent = (Abonent) o;
-        return (this.fullname + this.phoneNumber).compareTo(abonent.fullname + abonent.phoneNumber);
+    public int compareTo(Abonent o) {
+        return (this.fullname + this.phoneNumber).compareTo(o.fullname + o.phoneNumber);
     }
 }
