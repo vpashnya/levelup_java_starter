@@ -1,37 +1,35 @@
 package ru.levelup.lesson10;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.Charset;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.TreeMap;
+import java.util.*;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public class WordCountRunner {
     public static void main(String[] args) throws IOException {
 
         FileInputStream fileInputStream = new FileInputStream(args[0]);
         InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, Charset.forName("cp1251"));
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        StringWriter stringWriter = new StringWriter();
+        inputStreamReader.transferTo(stringWriter);
 
-        LinkedList<String> words = new LinkedList<>();
+        Map<String, Long> wordsCount = Arrays.stream(stringWriter.getBuffer().toString().split("\\s|\\.|,|-|:|!|\\[|]|\\?|№|\\n\\r\\t"))
+                .filter(s -> !s.trim().equals(""))
+                .collect(Collectors.groupingBy(k -> k, Collectors.counting()));
 
-        bufferedReader
-                .lines()
-                .forEach(str -> Arrays.stream(str.split("\\s|\\.|,|-|:|!|\\[|]|\\?|№|\\n\\r\\t"))
-                        .filter(s -> !s.trim().equals(""))
-                        .forEach(s -> words.add(s.toLowerCase().trim())));
+        Consumer<Map.Entry<String, Long>> consumer = new Consumer<Map.Entry<String, Long>>() {
+            @Override
+            public void accept(Map.Entry<String, Long> stringLongEntry) {
+                System.out.println(stringLongEntry.getKey() + "  -  " + stringLongEntry.getValue());
+            }
+        };
 
-        TreeMap<String, Integer> wordsCount = new TreeMap<>();
-
-        words.stream().forEach(s -> wordsCount.put(s, (wordsCount.get(s) == null ? 0 : wordsCount.get(s)) + 1));
-
+        System.out.println("20 самых популярных слов из файла");
         wordsCount.entrySet().stream()
-                .sorted((o1, o2) -> o2.getValue() - o1.getValue())
+                .sorted((o1, o2) -> Math.toIntExact(o2.getValue() - o1.getValue()))
                 .limit(20)
-                .forEach(System.out::println);
+                .forEach(consumer::accept);
 
     }
 }
