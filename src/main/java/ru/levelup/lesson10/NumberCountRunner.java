@@ -17,8 +17,8 @@ public class NumberCountRunner {
 
         System.out.println(list);
 
-        System.out.println("Максимальное значение " + list.stream().max(((o1, o2) -> o1 - o2)).get());
-        System.out.println("Минимальное значение  " + list.stream().min(((o1, o2) -> o1 - o2)).get());
+        System.out.println("Максимальное значение " + list.stream().max(Integer::compare).orElse(0));
+        System.out.println("Минимальное значение  " + list.stream().min(Integer::compare).orElse(0));
         System.out.println("Среднее значение      " + list.stream().collect(Collectors.averagingInt(i -> i)));
 
         AtomicBoolean odd = new AtomicBoolean(false);
