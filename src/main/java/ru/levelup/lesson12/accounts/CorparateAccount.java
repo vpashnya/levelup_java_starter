@@ -1,6 +1,6 @@
 package ru.levelup.lesson12.accounts;
 
-import ru.levelup.lesson12.clients.AbstractClient;
+
 import ru.levelup.lesson12.clients.CorparateClient;
 
 public class CorparateAccount extends AbstractAccount {

@@ -1,6 +1,5 @@
 package ru.levelup.lesson12.accounts;
 
-import ru.levelup.lesson12.clients.AbstractClient;
 import ru.levelup.lesson12.clients.PersonClient;
 
 public class PersonAccount extends AbstractAccount {
