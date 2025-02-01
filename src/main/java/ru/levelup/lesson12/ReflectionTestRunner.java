@@ -46,13 +46,13 @@ public class ReflectionTestRunner {
                         accClass.getMethod("debet", BigDecimal.class).invoke(account, new BigDecimal(random.nextInt(1000)));
                         accClass.getMethod("credit", BigDecimal.class).invoke(account, new BigDecimal(random.nextInt(1000)));
                     } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-                        throw new RuntimeException(e);
+
                     }
                     return account;
                 })).map(account -> {
                     //вывод private полей через рефлексию
                     Class<?> accClass = account.getClass();
-                    StringBuffer sb = new StringBuffer();
+                    StringBuilder sb = new StringBuilder();
                     Arrays.stream(accClass.getSuperclass().getDeclaredFields()).forEach(field -> {
                                 field.setAccessible(true);
                                 if (List.of("accNum", "balance", "client").contains(field.getName())) {
@@ -74,7 +74,7 @@ public class ReflectionTestRunner {
                         System.out.println(xmlMapper.writeValueAsString(account));
                         System.out.println(jsonMapper.writeValueAsString(account));
                     } catch (JsonProcessingException e) {
-                        throw new RuntimeException(e);
+
                     }
                     return account;
                 })

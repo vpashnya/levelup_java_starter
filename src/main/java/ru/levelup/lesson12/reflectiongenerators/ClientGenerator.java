@@ -44,17 +44,15 @@ public class ClientGenerator {
                         , Arrays.stream(person.getClass().getSuperclass().getDeclaredFields()))
                 .forEach(f -> {
                             f.setAccessible(true);
-                            String value = null;
-                            switch (f.getName()) {
-                                case "fullName" -> value = fullName;
-                                case "inn" -> value = inn;
-                                case "surName" -> value = surName;
-                                case "name" -> value = name;
-                                case "fatherName" -> value = fatherName;
-                                default -> {
-                                    value = null;
-                                }
-                            }
+                            String value =
+                                    switch (f.getName()) {
+                                        case "fullName" -> fullName;
+                                        case "inn" -> inn;
+                                        case "surName" -> surName;
+                                        case "name" -> name;
+                                        case "fatherName" -> fatherName;
+                                        default -> null;
+                                    };
                             try {
                                 f.set(person, value);
                             } catch (IllegalAccessException e) {
@@ -69,7 +67,7 @@ public class ClientGenerator {
 
     public static PersonClient generatePerson2(String inn, String surName, String name, String fatherName) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         Class<?>[] constArgs = {String.class, String.class, String.class, String.class};
-        String[] args = {inn, surName, name, fatherName};
+        String[] args = {surName, name, fatherName, inn};
         return PersonClient.class.getDeclaredConstructor(constArgs).newInstance(args);
     }
 }

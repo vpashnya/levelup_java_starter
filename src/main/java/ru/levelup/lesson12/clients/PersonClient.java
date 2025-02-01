@@ -1,15 +1,16 @@
 package ru.levelup.lesson12.clients;
 
-public class PersonClient extends AbstractClient{
+public class PersonClient extends AbstractClient {
     private String surName;
     private String name;
     private String fatherName;
 
-    public PersonClient(){
-        super(null,null);
+    public PersonClient() {
+        super(null, null);
     }
-    private PersonClient(String fullName, String inn){
-        super(fullName,inn);
+
+    private PersonClient(String fullName, String inn) {
+        super(fullName, inn);
     }
 
     public PersonClient(String surName, String name, String fatherName, String inn) {
