@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="levelup_java_starter" />
+        <module name="level_up_lessons" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="levelup_java_starter" target="23" />
+    </bytecodeTargetLevel>
   </component>
 </project>
