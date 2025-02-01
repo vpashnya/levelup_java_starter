@@ -1,5 +1,10 @@
 package ru.levelup.lesson12.clients;
 
+import lombok.Getter;
+import lombok.ToString;
+
+@Getter
+@ToString
 public abstract class AbstractClient {
     private String fullName;
     private String inn;
@@ -9,19 +14,4 @@ public abstract class AbstractClient {
         this.inn = inn;
     }
 
-    public String getFullName() {
-        return fullName;
-    }
-
-    public String getInn() {
-        return inn;
-    }
-
-    @Override
-    public String toString() {
-        return "AbstractClient{" +
-                "fullName='" + fullName + '\'' +
-                ", inn='" + inn + '\'' +
-                '}';
-    }
 }
