@@ -1,11 +1,15 @@
 package ru.levelup.lesson12.accounts;
 
+import lombok.Getter;
+import lombok.ToString;
 import ru.levelup.lesson12.clients.AbstractClient;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-public abstract class AbstractAccount implements Serializable {
+@ToString
+@Getter
+public abstract class AbstractAccount implements Serializable, Account {
     private static long numCounter = 0;
     private String accNum;
     private BigDecimal balance = BigDecimal.ZERO;
@@ -29,24 +33,4 @@ public abstract class AbstractAccount implements Serializable {
         balance = balance.subtract(amount);
     }
 
-    public String getAccNum() {
-        return accNum;
-    }
-
-    public BigDecimal getBalance() {
-        return balance;
-    }
-
-    public AbstractClient getClient() {
-        return client;
-    }
-
-    @Override
-    public String toString() {
-        return "AbstractAccount{" +
-                "accNum='" + accNum + '\'' +
-                ", client='" + client + '\'' +
-                ", balance=" + balance +
-                '}';
-    }
 }

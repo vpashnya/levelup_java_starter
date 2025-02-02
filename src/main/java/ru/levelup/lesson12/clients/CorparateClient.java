@@ -1,5 +1,10 @@
 package ru.levelup.lesson12.clients;
 
+import lombok.Getter;
+import lombok.ToString;
+
+@Getter
+@ToString(callSuper=true)
 public class CorparateClient extends AbstractClient {
     private String ogrn;
 
@@ -12,16 +17,4 @@ public class CorparateClient extends AbstractClient {
         this.ogrn = ogrn;
     }
 
-    public String getOgrn() {
-        return ogrn;
-    }
-
-    @Override
-    public String toString() {
-        return "CorparateClient{" +
-                "ogrn='" + ogrn + '\'' +
-                ", fullName='" + getFullName() + '\'' +
-                ", inn='" + getInn() + '\'' +
-                '}';
-    }
 }
