@@ -25,6 +25,10 @@ public abstract class AbstractAccount implements Serializable, Account {
     }
     abstract protected String getBalanceNum();
 
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
     public void debet(BigDecimal amount) {
         balance= balance.add(amount);
     }
