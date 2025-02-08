@@ -11,7 +11,13 @@ import ru.levelup.lesson09.phonedictionary.CollectionPhoneDictionary;
 import ru.levelup.lesson09.phonedictionary.MapPhoneDictionary;
 
 import java.time.Duration;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Random;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 @DisplayName("Занятие 9. Поиск самого популярного абонента")
 public class FindPopularAbonentTest {

@@ -7,7 +7,11 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import ru.levelup.lesson06.generics.GenericExample;
-import ru.levelup.lesson06.taskclasses.*;
+import ru.levelup.lesson06.taskclasses.Animal;
+import ru.levelup.lesson06.taskclasses.Cat;
+import ru.levelup.lesson06.taskclasses.Dog;
+import ru.levelup.lesson06.taskclasses.Hamster;
+import ru.levelup.lesson06.taskclasses.Horse;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @DisplayName("Занятие 6. Проверяем что удачно создается дженерик с разными классами")
