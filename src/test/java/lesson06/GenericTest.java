@@ -10,7 +10,7 @@ import ru.levelup.lesson06.generics.GenericExample;
 import ru.levelup.lesson06.taskclasses.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@DisplayName("Занятие 6. Проверяем что удачно создается дженерик с разными разными классами")
+@DisplayName("Занятие 6. Проверяем что удачно создается дженерик с разными классами")
 public class GenericTest {
 
     @Test
