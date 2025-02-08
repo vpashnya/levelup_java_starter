@@ -4,16 +4,12 @@ import lombok.SneakyThrows;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.levelup.lesson12.accounts.AbstractAccount;
 import ru.levelup.lesson12.accounts.Account;
 import ru.levelup.lesson12.accounts.CorparateAccount;
 import ru.levelup.lesson12.clients.CorparateClient;
-import ru.levelup.lesson12.reflectiongenerators.AccountGenerator;
-import ru.levelup.lesson12.reflectiongenerators.ClientGenerator;
 import ru.levelup.lesson13.AnnotationRunner;
 import ru.levelup.lesson13.proxyclasses.AccountProxyHandler;
 
-import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.math.BigDecimal;
 

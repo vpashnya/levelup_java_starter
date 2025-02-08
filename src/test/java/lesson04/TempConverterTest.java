@@ -12,7 +12,6 @@ public class TempConverterTest {
     @DisplayName(" цельсия -> кельвины")
     public void convertCelsius2KelvinIsTest() {
         Assertions.assertTrue((Temperature.convert(0, Temperature.CELSIUS, Temperature.KELVIN) > 0));
-
     }
 
     @Test
