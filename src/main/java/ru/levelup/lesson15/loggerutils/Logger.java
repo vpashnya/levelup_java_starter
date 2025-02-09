@@ -4,10 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.SneakyThrows;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -21,27 +17,31 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class Logger {
 
     private AtomicBoolean runFlag;
-    private Writer logFileWriter;
-    private ConcurrentHashMap<LogType, ConcurrentLinkedQueue<LogMessage>> messages = null;
+    private Appendable logFileWriter;
+    private ConcurrentHashMap<LogType, ConcurrentLinkedQueue<LogMessage>> messages;
     private LinkedList<LogSaverThread> logSavers;
     private Random random;
 
     @SneakyThrows
-    public Logger(Random random, AtomicBoolean runFlag, File logFile) {
+    public Logger(Random random, AtomicBoolean runFlag, Appendable logFileWriter) {
         this.random = random;
         this.runFlag = runFlag;
 
-        logFileWriter = new BufferedWriter(new FileWriter(logFile));
+        this.logFileWriter = logFileWriter;
 
         messages = new ConcurrentHashMap<>();
         logSavers = new LinkedList<>();
 
         Arrays.stream(LogType.values()).forEach((l) -> {
             messages.put(l, new ConcurrentLinkedQueue<LogMessage>());
-            LogSaverThread logSaver = new LogSaverThread(l);
-            logSaver.start();
-            logSavers.add(logSaver);
+            createLogThread(l);
         });
+    }
+
+    private void createLogThread(LogType logType){
+        LogSaverThread logSaver = new LogSaverThread(logType);
+        logSaver.start();
+        logSavers.add(logSaver);
     }
 
     public void putMessage(LogType logType, String message) {
@@ -50,7 +50,7 @@ public class Logger {
 
     @SneakyThrows
     private void saveMessage2File(String logMessage) {
-        logFileWriter.write(logMessage + "\n");
+        logFileWriter.append(logMessage + "\n");
     }
 
     @SneakyThrows
@@ -62,7 +62,6 @@ public class Logger {
 
             }
         });
-        logFileWriter.close();
     }
 
     @AllArgsConstructor

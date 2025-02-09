@@ -5,18 +5,30 @@ import ru.levelup.lesson15.contentmakers.ContentMakerThread;
 import ru.levelup.lesson15.loggerutils.Logger;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.Writer;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class ThreadsRunner {
-    @SneakyThrows
+
     public static void main(String[] args) {
+        File file = new File("C:\\Users\\user\\Desktop\\threadsLogs.txt ");
+        logs2File(file);
+        file2Console(file);
+
+    }
+
+    @SneakyThrows
+    public static void logs2File(File file) {
         AtomicBoolean runFlag = new AtomicBoolean(true);
         Random random = new Random();
-        File file = new File("C:\\Users\\user\\Desktop\\threadsLogs.txt ");
-        Logger logger = new Logger(random, runFlag, file);
+        Writer logFileWriter = new BufferedWriter(new FileWriter(file));
+
+        Logger logger = new Logger(random, runFlag, logFileWriter);
 
         new ContentMakerThread(runFlag, random, logger).start();
         new ContentMakerThread(runFlag, random, logger).start();
@@ -24,10 +36,9 @@ public class ThreadsRunner {
 
         Thread.sleep(60000);
         runFlag.set(false);
+
         logger.close();
-
-        file2Console(file);
-
+        logFileWriter.close();
     }
 
     @SneakyThrows
