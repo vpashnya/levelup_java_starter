@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.SneakyThrows;
 
+import java.io.Closeable;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -14,7 +15,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 @Getter
-public class Logger {
+public class Logger implements Closeable {
 
     private AtomicBoolean runFlag;
     private Appendable logFileWriter;
@@ -29,12 +30,12 @@ public class Logger {
 
         this.logFileWriter = logFileWriter;
 
-        messages = new ConcurrentHashMap<>();
-        logSavers = new LinkedList<>();
+        this.messages = new ConcurrentHashMap<>();
+        this.logSavers = new LinkedList<>();
 
-        Arrays.stream(LogType.values()).forEach((l) -> {
-            messages.put(l, new ConcurrentLinkedQueue<LogMessage>());
-            createLogThread(l);
+        Arrays.stream(LogType.values()).forEach((it) -> {
+            messages.put(it, new ConcurrentLinkedQueue<LogMessage>());
+            createLogThread(it);
         });
     }
 

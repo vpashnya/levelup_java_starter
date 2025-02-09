@@ -26,19 +26,18 @@ public class ThreadsRunner {
     public static void logs2File(File file) {
         AtomicBoolean runFlag = new AtomicBoolean(true);
         Random random = new Random();
-        Writer logFileWriter = new BufferedWriter(new FileWriter(file));
+        try (Writer logFileWriter = new BufferedWriter(new FileWriter(file));
+             Logger logger = new Logger(random, runFlag, logFileWriter);
+        ) {
 
-        Logger logger = new Logger(random, runFlag, logFileWriter);
+            new ContentMakerThread(logger).start();
+            new ContentMakerThread(logger).start();
+            new ContentMakerThread(logger).start();
 
-        new ContentMakerThread(runFlag, random, logger).start();
-        new ContentMakerThread(runFlag, random, logger).start();
-        new ContentMakerThread(runFlag, random, logger).start();
+            Thread.sleep(60000);
+            runFlag.set(false);
+        }
 
-        Thread.sleep(60000);
-        runFlag.set(false);
-
-        logger.close();
-        logFileWriter.close();
     }
 
     @SneakyThrows

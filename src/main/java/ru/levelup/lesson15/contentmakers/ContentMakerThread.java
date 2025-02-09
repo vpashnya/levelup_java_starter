@@ -10,14 +10,12 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 @AllArgsConstructor
 public class ContentMakerThread extends Thread {
-    AtomicBoolean runFlag = null;
-    Random random = null;
-    Logger logger = null;
+    private Logger logger;
 
     private String generateRandomString() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 40; i++) {
-            sb.append((char) (random.nextInt(66) + 1040));
+            sb.append((char) (logger.getRandom().nextInt(66) + 1040));
         }
         return sb.toString();
     }
@@ -25,8 +23,8 @@ public class ContentMakerThread extends Thread {
     @SneakyThrows
     @Override
     public void run() {
-        while (runFlag.get()) {
-            logger.putMessage(LogType.values()[random.nextInt(LogType.values().length)], generateRandomString());
+        while (logger.getRunFlag().get()) {
+            logger.putMessage(LogType.values()[logger.getRandom().nextInt(LogType.values().length)], generateRandomString());
             Thread.sleep(50);
         }
     }
