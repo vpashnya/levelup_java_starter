@@ -1,7 +1,6 @@
 package ru.levelup.lesson16;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Random;
@@ -33,27 +32,27 @@ public class FindNumInMultiThreadRunner {
             }, executor);
 
 
-            CompletableFuture<Void> maxTask = fillCollection.thenAcceptAsync((list) -> {
+            CompletableFuture<String> maxTask = fillCollection.thenApplyAsync((list) -> {
                 log("Ищем максимальное значение...");
                 Integer maxValue = 0;
                 Iterator<Integer> iterator = list.iterator();
                 while (iterator.hasNext()) {
                     maxValue = Math.max(maxValue, iterator.next());
                 }
-                log("Максимальное значение " + maxValue);
+                return "Максимальное значение " + maxValue;
             });
 
-            CompletableFuture<Void> minTask = fillCollection.thenAcceptAsync((list) -> {
+            CompletableFuture<String> minTask = fillCollection.thenApplyAsync((list) -> {
                 log("Ищем минимальное значение...");
                 Integer minValue = 0;
                 Iterator<Integer> iterator = list.iterator();
                 while (iterator.hasNext()) {
                     minValue = Math.min(minValue, iterator.next());
                 }
-                log("Минимальное значение " + minValue);
+                return "Минимальное значение " + minValue;
             });
 
-            CompletableFuture<Void> avgTask = fillCollection.thenAcceptAsync((list) -> {
+            CompletableFuture<String> avgTask = fillCollection.thenApplyAsync((list) -> {
                 log("Ищем среднее значение...");
                 BigInteger avgValue = BigInteger.ZERO;
                 Iterator<Integer> iterator = list.iterator();
@@ -61,12 +60,12 @@ public class FindNumInMultiThreadRunner {
                     avgValue = avgValue.add(BigInteger.valueOf(iterator.next()));
                 }
                 avgValue = avgValue.divide(BigInteger.valueOf(list.size()));
-                log("среднее значение " + avgValue);
+                return "Cреднее значение " + avgValue;
             });
 
-            maxTask.get();
-            minTask.get();
-            avgTask.get();
+            log(maxTask.get());
+            log(minTask.get());
+            log(avgTask.get());
 
         }
     }
