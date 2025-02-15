@@ -46,10 +46,10 @@ public class Logger {
     @AllArgsConstructor
     class LogMessage {
         private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-        long messageTime;
-        LogType logType;
-        long threadNum;
-        String message;
+        private long messageTime;
+        private LogType logType;
+        private long threadNum;
+        private String message;
 
         @Override
         public String toString() {

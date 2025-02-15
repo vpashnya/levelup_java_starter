@@ -4,7 +4,10 @@ import java.math.BigInteger;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Random;
-import java.util.concurrent.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class FindNumInMultiThreadRunner {
     static final int COLLECTION_SIZE = 1000000;
