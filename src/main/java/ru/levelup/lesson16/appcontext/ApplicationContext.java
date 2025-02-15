@@ -44,11 +44,11 @@ public class ApplicationContext implements Closeable {
 
     @SneakyThrows
     @Override
-    public void close() throws IOException {
+    public void close()  {
         active = false;
         executorRepeatTasks.shutdown();
         executorRepeatTasks.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-        executorSimpleTasks.close();
+        executorSimpleTasks.shutdown();
         executorSimpleTasks.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
 
     }
