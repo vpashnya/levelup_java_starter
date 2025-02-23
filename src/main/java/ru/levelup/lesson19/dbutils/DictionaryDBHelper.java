@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.sql.Savepoint;
 
 public class DictionaryDBHelper implements Closeable {
-    Connection connection;
+    private Connection connection;
 
     @SneakyThrows
     public DictionaryDBHelper() {
