@@ -5,7 +5,6 @@ import org.hibernate.query.Query;
 import ru.levelup.lesson20.dao.CityDao;
 import ru.levelup.lesson20.dbutils.DBHelper;
 import ru.levelup.lesson20.entities.City;
-import ru.levelup.lesson20.entities.Region;
 
 import java.util.List;
 
