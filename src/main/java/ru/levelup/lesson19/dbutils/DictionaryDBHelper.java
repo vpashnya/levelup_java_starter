@@ -147,8 +147,6 @@ public class DictionaryDBHelper implements Closeable {
                     System.out.println(DICTIONARY_PRINT_FROMAT.formatted(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5)));
                 }
             }
-
-
         }
     }
 
