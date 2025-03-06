@@ -1,19 +1,6 @@
-version: '3.8'
-
+version: "3.8"
 services:
-  db:
-    image: postgres:17.3
-    container_name: postgres_db
-    restart: always
-    environment:
-      POSTGRES_DB: postgres_db
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:\dockers\pg
-
+  # Name of the Docker Compose service
   oracle:
     # Docker Hub image (feel free to change the tag "latest" to any other available one)
     image: gvenzl/oracle-free:latest
@@ -33,8 +20,6 @@ services:
       retries: 10
       start_period: 5s
       start_interval: 5s
-
-volumes:
-  postgres_data:
-
-
+    # Mount a local SQL file to initialize your schema at startup
+    volumes:
+      - my-init.sql:/container-entrypoint-initdb.d/my-init.sql:ro

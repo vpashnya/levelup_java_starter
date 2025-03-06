@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class CityDictionaryHibernateRunner {
     public static void main(String[] args) throws ClassNotFoundException {
         Class.forName("org.postgresql.Driver");
+        Class.forName("oracle.jdbc.OracleDriver");
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
