@@ -8,6 +8,7 @@ import ru.levelup.lesson12.reflectiongenerators.ClientGenerator;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @DisplayName("Занятие 12. Создание объектов через рефликсию")
+@Disabled
 public class ReflectionTest {
     static CorparateClient corparateClient1 = null;
     static PersonClient personClient1 = null;

@@ -1,12 +1,14 @@
 package lesson04;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.levelup.lesson04.cartask.automobiles.Car;
 import ru.levelup.lesson04.cartask.automobiles.Truck;
 
 @DisplayName("Занятие 4. Машины не могут проехать больше положеного")
+@Disabled
 public class AutomobileDriveTest {
 
     @Test

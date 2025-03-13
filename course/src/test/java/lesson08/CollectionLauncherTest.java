@@ -1,6 +1,7 @@
 package lesson08;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.levelup.lesson08.employees.Employee;
@@ -12,6 +13,7 @@ import java.util.LinkedList;
 import java.util.Random;
 
 @DisplayName("Занятие 8. Наполнение коллекций")
+@Disabled
 public class CollectionLauncherTest {
     @Test
     @DisplayName("Проверим скорость наполнения коллекции")

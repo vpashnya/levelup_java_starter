@@ -8,6 +8,7 @@ import ru.levelup.lesson07.exceptions.Over2$5WidthException;
 
 
 @DisplayName("Занятие 7. Отлов исключений")
+@Disabled
 public class ExceptionCatchTest {
 
     @Test

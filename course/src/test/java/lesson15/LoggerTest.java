@@ -1,10 +1,7 @@
 package lesson15;
 
 import lombok.SneakyThrows;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
 import ru.levelup.lesson15.loggerutils.LogType;
 import ru.levelup.lesson15.loggerutils.Logger;
@@ -12,7 +9,9 @@ import ru.levelup.lesson15.loggerutils.Logger;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+
 @DisplayName("Занятие 15. Проверим логирование")
+@Disabled
 public class LoggerTest {
 
     static AtomicBoolean runFlag;

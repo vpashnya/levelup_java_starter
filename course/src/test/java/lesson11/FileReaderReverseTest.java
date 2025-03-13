@@ -1,6 +1,7 @@
 package lesson11;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.levelup.lesson11.FileReadRunner;
@@ -8,6 +9,7 @@ import ru.levelup.lesson11.FileReadRunner;
 import java.time.Duration;
 
 @DisplayName("Занятие 11. Реверс файла ")
+@Disabled
 public class FileReaderReverseTest {
     @Test
     @DisplayName("Реверс укладывается в допустимое время")

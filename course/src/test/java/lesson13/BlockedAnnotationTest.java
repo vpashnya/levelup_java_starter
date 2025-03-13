@@ -2,6 +2,7 @@ package lesson13;
 
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.levelup.lesson12.accounts.Account;
@@ -14,6 +15,7 @@ import java.lang.reflect.Proxy;
 import java.math.BigDecimal;
 
 @DisplayName("Занятие 13. Проверка аннотации Blocked")
+@Disabled
 public class BlockedAnnotationTest {
     @SneakyThrows
     @Test

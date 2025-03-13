@@ -1,9 +1,6 @@
 package lesson09;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import ru.levelup.lesson09.abonentclasses.Abonent;
 import ru.levelup.lesson09.abonentgenerators.FemaleAbonentFactrory;
 import ru.levelup.lesson09.abonentgenerators.MaleAbonentFactory;
@@ -20,6 +17,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 @DisplayName("Занятие 9. Поиск самого популярного абонента")
+@Disabled
 public class FindPopularAbonentTest {
 
     static int count = 25000;

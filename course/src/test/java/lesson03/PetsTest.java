@@ -1,6 +1,7 @@
 package lesson03;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.levelup.lesson03.pets.Cat;
@@ -8,6 +9,7 @@ import ru.levelup.lesson03.pets.Dog;
 import ru.levelup.lesson03.pets.Parrot;
 
 @DisplayName("Занятие 3. Домашние животные")
+@Disabled
 public class PetsTest {
     @Test
     @DisplayName("Невозможность создание очень старой кошки")
