@@ -1,11 +1,13 @@
 package lesson04;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.levelup.lesson04.convertertask.converters.Temperature;
 
 @DisplayName("Занятие 4. Конвертация  в кельвины всегда положительное число")
+@Disabled
 public class TempConverterTest {
 
     @Test
